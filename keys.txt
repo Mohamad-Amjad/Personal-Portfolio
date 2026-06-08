@@ -1,0 +1,3 @@
+ publicKey: "RmvBVSJ8vBffS8PZd"
+ "service_9tzh2xe"
+ "template_ztv887p"

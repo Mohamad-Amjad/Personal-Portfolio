@@ -1,0 +1,684 @@
+<!doctype html>
+<html lang="en" class="scroll-smooth">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Full Stack Developer Portfolio</title>
+
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+
+  <!-- Custom Tailwind config (optional) -->
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            primary: "#60a5fa",
+            secondary: "#3b82f6",
+            accent: "#a855f7",
+          },
+          fontFamily: {
+            sans: ["Inter", "system-ui", "sans-serif"],
+          },
+        },
+      },
+    };
+  </script>
+
+  <!-- Google Font (optional) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" />
+  <style>
+    /* Subtle noise background (optional) */
+    body {
+      font-family:
+        "Inter",
+        system-ui,
+        -apple-system,
+        BlinkMacSystemFont,
+        "Segoe UI",
+        sans-serif;
+      background:
+        radial-gradient(circle at top left,
+          rgba(45, 4, 157, 0.416),
+          transparent 55%),
+        radial-gradient(circle at bottom right,
+          rgba(3, 81, 171, 0.25),
+          transparent 55%),
+        #020b33;
+    }
+  </style>
+</head>
+
+<body class="min-h-screen text-slate-50">
+  <!-- Page container -->
+  <div class="relative max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-8 sm:py-12">
+    <!-- Floating gradient blobs for depth -->
+    <div class="pointer-events-none fixed inset-0 -z-10">
+      <div class="absolute -top-32 -left-10 w-72 h-72 bg-primary/20 blur-3xl rounded-full"></div>
+      <div class="absolute -bottom-32 -right-10 w-72 h-72 bg-accent/20 blur-3xl rounded-full"></div>
+    </div>
+
+    <!-- Navbar -->
+    <header
+      class="flex items-center justify-between gap-4 mb-10 sm:mb-10 px-3 py-5 rounded-2xl bg-white/4 border border-white/20 backdrop-blur-2xl shadow-xl shadow-blue-600/10">
+      <div class="flex items-center gap-2">
+        <div
+          class="h-9 w-9 rounded-2xl bg-gradient-to-tr from-primary to-accent flex items-center justify-center text-sm font-semibold shadow-lg shadow-primary/40">
+          <img src="profile.jpeg" alt="profile_logo" class="rounded-full" />
+        </div>
+        <div>
+          <p class="text-sm font-semibold tracking-wide uppercase text-slate-200">
+            Full Stack Developer
+          </p>
+          <p class="text-xs text-slate-400 hidden sm:block">
+            Aspiring Full Stack Developer
+          </p>
+        </div>
+      </div>
+
+      <nav class="hidden sm:flex items-center gap-6 text-sm">
+        <a href="#about"
+          class="transition-colors bg-white/15 bg-gradient-to-r from-cyan-500 to-blue-400 text-black font-bold
+           border border-white/20 rounded-xl shadow-white/10 backdrop-blur-2xl shadow-lg shadow-blue-200/50 px-5 py-2 
+           transition-all duration-300 hover:bg-gradient-to-r hover:from-primary hover:to-cyan-400 hover:shadow-3xl hover:text-white hover:translate-y-[-2px] ">
+           About
+          </a>
+        <a href="#skills"
+          class="transition-colors bg-white/15 bg-gradient-to-r from-cyan-500 to-blue-400 text-black font-bold
+           border border-white/20 rounded-xl shadow-white/10 backdrop-blur-2xl shadow-lg shadow-blue-200/50 px-5 py-2 
+           transition-all duration-300 hover:bg-gradient-to-r hover:from-primary hover:to-cyan-400 hover:shadow-3xl hover:text-white hover:translate-y-[-2px] ">
+           Skills
+          </a>
+        <a href="#projects"
+          class="transition-colors bg-white/15 bg-gradient-to-r from-cyan-500 to-blue-400 text-black font-bold
+           border border-white/20 rounded-xl shadow-white/10 backdrop-blur-2xl shadow-lg shadow-blue-200/50 px-5 py-2 
+           transition-all duration-300 hover:bg-gradient-to-r hover:from-primary hover:to-cyan-400 hover:shadow-3xl hover:text-white hover:translate-y-[-2px] ">
+           Projects
+          </a>
+        <a href="#education"
+          class="transition-colors bg-white/15 bg-gradient-to-r from-cyan-500 to-blue-400 text-black font-bold
+           border border-white/20 rounded-xl shadow-white/10 backdrop-blur-2xl shadow-lg shadow-blue-200/50 px-5 py-2 
+           transition-all duration-300 hover:bg-gradient-to-r hover:from-primary hover:to-cyan-400 hover:shadow-3xl hover:text-white hover:translate-y-[-2px] ">
+           Education
+          </a>
+        <a href="#contact"
+          class="transition-colors bg-white/15 bg-gradient-to-r from-cyan-500 to-blue-400 text-black font-bold
+           border border-white/20 rounded-xl shadow-white/10 backdrop-blur-2xl shadow-lg shadow-blue-200/50 px-5 py-2 
+           transition-all duration-300 hover:bg-gradient-to-r hover:from-primary hover:to-cyan-400 hover:shadow-3xl hover:text-white hover:translate-y-[-2px] ">
+           Contact
+          </a>
+      </nav>
+
+      <a href="#contact"
+        class="inline-flex items-center gap-1 rounded-full border border-slate-700/70 bg-slate-900/40 px-4 py-1.5 text-xs sm:text-sm font-medium text-slate-100 backdrop-blur-md hover:border-primary/70 hover:bg-slate-900/80 transition-all 
+           border border-white/20 rounded-md shadow-white/10 backdrop-blur-xl shadow-lg shadow-blue-200/50 px-3 py-1 hover:shadow-3xl hover:shadow-primary/30" "
+        >
+          Let’s talk
+          <span class=" text-primary">↗</span>
+      </a>
+    </header>
+
+    <!-- Hero -->
+    <section id="about"
+      class="grid lg:grid-cols-[minmax(0,1.8fr)_minmax(0,1.2fr)] gap-8 lg:gap-12 items-stretch mb-12 sm:mb-20">
+      <!-- Hero text card -->
+      <div class="relative rounded-3xl p-6 sm:p-8 md:p-10 
+           bg-black/5  border border-white/20 backdrop-blur-3xl shadow-2xl shadow-white/20
+           hover:scale-105 hover:border-primary/50 transition-all duration-700">
+        <div class="absolute inset-0 bg-gradient-to-tr from-white/5 via-transparent to-primary/10 pointer-events-none">
+        </div>
+
+        <div class="relative space-y-6">
+
+          <h1 class="text-2xl sm:text-3xl md:text-4xl font-bold leading-tight text-slate-50">
+            Hi, I'm
+            <span class=" mt-2 bg-gradient-to-r from-primary via-blue-300 to-accent bg-clip-text text-transparent">
+              Mohamad Amjad
+            </span>
+            <span class="block mt-2 text-md sm:text-xl text-slate-300 font-medium">
+              Full Stack Developer
+            </span>
+          </h1>
+
+          <p class="text-sm sm:text-base text-slate-300 max-w-xl">
+            I design and build end‑to‑end web applications from
+            pixel‑perfect user interfaces to robust, scalable backends. I care
+            about clean architecture, performance, and delightful user
+            experience.
+          </p>
+
+          <div class="flex flex-wrap gap-3">
+            <div
+              class="inline-flex items-center gap-2 rounded-full bg-white/5 border border-white/10 px-3 py-1 text-xs text-slate-200 backdrop-blur">
+              <span class="inline-block h-1.5 w-1.5 rounded-full bg-emerald-400"></span>
+              Available for freelance & part‑time
+            </div>
+            <div
+              class="inline-flex items-center gap-2 rounded-full bg-white/5 border border-white/10 px-3 py-1 text-xs text-slate-300">
+              <span class="text-slate-400 text-white">🌎 Open to Opportunities Worldwide</span>
+            </div>
+          </div>
+
+          <div class="flex flex-wrap gap-4 pt-2">
+            <a href="#projects"
+              class="inline-flex items-center justify-center gap-2 rounded-full bg-gradient-to-r from-primary to-accent px-5 py-2.5 text-sm font-medium text-slate-950 shadow-lg shadow-primary/40 hover:shadow-xl hover:shadow-primary/50 transition-all">
+              View projects
+            </a>
+
+            <a href="mailto:you@example.com"
+              class="inline-flex items-center justify-center gap-2 rounded-full border border-slate-600/70 bg-slate-900/40 px-5 py-2.5 text-sm font-medium text-slate-100 hover:border-primary/70 hover:bg-slate-900/80 transition-all">
+              Download CV
+            </a>
+          </div>
+
+          <div class="grid grid-cols-3 gap-4 border-t border-slate-700/70 pt-4 mt-2 text-xs sm:text-sm">
+            <div>
+              <p class="text-slate-400">Education</p>
+              <p class="font-semibold text-slate-100">
+                Bsc IT (Undergraduate)
+              </p>
+            </div>
+            <div>
+              <p class="text-slate-400">Projects</p>
+              <p class="font-semibold text-slate-100">4+ completed</p>
+            </div>
+            <div>
+              <p class="text-slate-400">Tech focus</p>
+              <p class="font-semibold text-slate-100 text-sm">Spring Boot, ASP.NET Core, React, MERN</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Side profile / stats card -->
+      <aside class="space-y-5 lg:space-y-6">
+        <!-- Profile -->
+        <div
+          class="rounded-3xl border border-white/20  bg-white/5 backdrop-blur-3xl p-5 sm:p-6 flex flex-col items-center text-center shadow-xl shadow-white/10
+          hover:scale-105 hover:border-primary/50 transition-all duration-500">
+          <div
+            class="relative h-24 w-24 sm:h-28 sm:w-28 rounded-3xl bg-gradient-to-br from-primary via-slate-900 to-accent p-0.5 mb-4 shadow-lg shadow-primary/40">
+            <div
+              class="h-full w-full rounded-3xl bg-slate-950/80 flex items-center justify-center text-3xl font-semibold text-slate-100">
+              <img src="profile.jpeg" alt="profile_picture" class="h-full w-full rounded-3xl object-cover" />
+            </div>
+          </div>
+          <p class="text-lg font-semibold text-slate-50">Mohamad Amjad</p>
+          <p class="text-xs text-slate-400 mb-4">Full Stack Developer</p>
+          <div class="flex gap-3 text-slate-300">
+            <a href="https://www.linkedin.com/in/mohamadamjad/" target="_blank"
+              class="hover:text-primary transition-colors flex gap-2"><i class="fa-brands fa-linkedin"></i>
+              <p class="text-sm">LinkedIn</p>
+            </a>
+            <a href="https://github.com/Mohamad-Amjad" target="_blank"
+              class="hover:text-primary transition-colors flex gap-2"><i class="fa-brands fa-github"></i>
+              <p class="text-sm">GitHub</p>
+            </a>
+          </div>
+        </div>
+
+        <!-- Quick skills -->
+        <div
+          class="rounded-3xl border border-white/20 bg-white/5 backdrop-blur-3xl p-5 sm:p-6 shadow-2xl shadow-white/30
+          hover:scale-105 hover:border-primary/50 transition-all duration-500">
+          <p class="text-xs font-semibold uppercase tracking-[0.2em] text-slate-400 mb-3">
+            Core stack
+          </p>
+          <div class="flex flex-wrap gap-2 text-[15px] sm:text-sm text-slate-200">
+            <span
+              class="px-3 py-1 rounded-full bg-slate-800/100 border border-white/30 backdrop-blur-3xl shadow-lg shadow-primary/10">
+              <i class="fa-brands fa-react text-cyan-400"></i>
+              React
+            </span>
+            <span
+              class="px-3 py-1 rounded-full  bg-slate-800/100 border border-white/30 backdrop-blur-3xl shadow-lg shadow-primary/10">
+              <img src="https://img.icons8.com/?size=100&id=90519&format=png&color=000000" width="16" height="16"
+                class="inline-block mr-1" alt="spring_boot_logo" />
+              Spring Boot
+            </span>
+            <span
+              class="px-3 py-1 rounded-full bg-slate-800/90 border  border border-white/30 backdrop-blur-3xl shadow-lg shadow-primary/10">
+              <img src="https://img.icons8.com/?size=100&id=1BC75jFEBED6&format=png&color=000000" width="16" height="16"
+                class="inline-block mr-1" alt="spring_boot_logo" />
+              ASP.NET Core
+            </span>
+            <span
+              class="px-3 py-1 rounded-full bg-slate-800/90 border  border border-white/30 backdrop-blur-3xl shadow-lg shadow-primary/10">
+              <img src="https://img.icons8.com/?size=100&id=hsPbhkOH4FMe&format=png&color=000000" width="16" height="16"
+                class="inline-block mr-1" alt="asp_net_core_logo" />
+              Node.js
+            </span>
+            <span
+              class="px-3 py-1 rounded-full bg-slate-800/90 border border border-white/30 backdrop-blur-3xl shadow-lg shadow-primary/10">
+              <img src="https://img.icons8.com/?size=100&id=QeIg9siFKGgp&format=png&color=000000" width="16" height="16"
+                class="inline-block mr-1" alt="asp_net_core_logo" />
+              MySQL
+            </span>
+            <span
+              class="px-3 py-1 rounded-full bg-slate-800/90 border  border border-white/30 backdrop-blur-3xl shadow-lg shadow-primary/10">
+              <img src="https://img.icons8.com/?size=100&id=bosfpvRzNOG8&format=png&color=000000" width="16" height="16"
+                class="inline-block mr-1" alt="asp_net_core_logo" />
+              MongoDb
+            </span>
+            <span
+              class="px-3 py-1 rounded-full bg-slate-800/90 border  border border-white/30 backdrop-blur-3xl shadow-lg shadow-primary/10">
+              <img src="https://img.icons8.com/?size=100&id=4PiNHtUJVbLs&format=png&color=000000" width="16" height="16"
+                class="inline-block mr-1" alt="asp_net_core_logo" />
+              Tailwind CSS
+            </span>
+          </div>
+        </div>
+      </aside>
+    </section>
+
+    <!-- Skills -->
+    <section id="skills" class="mb-12 sm:mb-16">
+      <div class="flex items-center justify-between mb-4 sm:mb-6 ">
+        <h2 class="text-lg sm:text-xl font-semibold text-slate-50">Skills</h2>
+      </div>
+
+      <div class="grid md:grid-cols-3 gap-5 ">
+        <!-- Frontend -->
+        <div class="rounded-2xl border border-white/20 bg-white/5 backdrop-blur-xl p-5 shadow-xl shadow-primary/15
+         hover:border-primary/50 hover:-translate-y-1 transition-all duration-300">
+          <p class="text-xs font-semibold uppercase tracking-[0.2em] text-slate-400 mb-2">
+            Frontend
+          </p>
+          <p class="text-sm text-slate-300 mb-3">
+            Modern, responsive UIs with focus on performance and
+            accessibility.
+          </p>
+          <ul class="space-y-1.5 text-sm text-slate-200">
+            <li>React, Next.js</li>
+            <li>JavaScript (ES6+)</li>
+            <li>Tailwind CSS, CSS Modules</li>
+            <li>Component-driven design</li>
+          </ul>
+        </div>
+
+        <!-- Backend -->
+        <div class="rounded-2xl border border-white/20 bg-white/5 backdrop-blur-xl p-5 shadow-xl shadow-primary/15
+        hover:border-primary/50 hover:-translate-y-1 transition-all duration-300">
+          <p class="text-xs font-semibold uppercase tracking-[0.2em] text-slate-400 mb-2">
+            Backend
+          </p>
+          <p class="text-sm text-slate-300 mb-3">
+            Secure, scalable APIs and services following clean architecture.
+          </p>
+          <ul class="space-y-1.5 text-sm text-slate-200">
+            <li>Node.js & Express</li>
+            <li>ASP.NET Core & Spring Boot</li>
+            <li>RESTful API Development</li>
+            <li>JWT Authentication & Authorization</li>
+            <li>API Testing with Postman & Swagger</li>
+          </ul>
+        </div>
+
+        <!-- Databases & DevOps -->
+        <div class="rounded-2xl border border-white/20 bg-white/5 backdrop-blur-xl p-5 shadow-xl shadow-primary/15 
+        hover:border-primary/50 hover:-translate-y-1 transition-all duration-300">
+          <p class="text-xs font-semibold uppercase tracking-[0.2em] text-slate-400 mb-2">
+            Data & DevOps
+          </p>
+          <p class="text-sm text-slate-300 mb-3">
+            Relational & NoSQL databases with practical deployment experience.
+          </p>
+          <ul class="space-y-1.5 text-sm text-slate-200">
+            <li>MySQL, MongoDB</li>
+            <li>Mongoose</li>
+            <li>Docker</li>
+            <li>Cloud: Vercel, MongoDB Atlas</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- Projects -->
+    <section id="projects" class="mb-12 sm:mb-16">
+      <div class="flex items-center justify-between mb-4 sm:mb-6">
+        <h2 class="text-lg sm:text-xl font-semibold text-slate-50">
+          Featured projects
+        </h2>
+        <a href="https://github.com/Mohamad-Amjad" target="_blank" class="text-xs sm:text-sm text-primary hover:underline">
+          View all on GitHub
+        </a>
+      </div>
+
+      <div class="grid md:grid-cols-4 gap-5">
+        <!-- Project 1 -->
+        <article class="rounded-2xl border border-white/20 bg-white/5 backdrop-blur-xl p-5  justify-between shadow-xl shadow-primary/20 
+          hover:border-primary/50 hover:-translate-y-1 transition-all duration-300">
+          <div>
+            <p class="text-sm font-semibold text-slate-50 mx-1">
+              Project Management System
+            </p>
+            <img src="PMS.png" alt="project_screenshot"
+              class="w-full h-32 object-cover rounded-md my-5 border border-slate-600" />
+            <p class="text-sm text-slate-400 mb-4">
+              A full-stack project management platform with role-based dashboards for Admins, Managers,
+              and Employees. Features secure JWT authentication, project and task management, department
+              administration, team collaboration, and real-time progress tracking through interactive
+              dashboards.
+            </p>
+          </div>
+          <div class="flex items-center justify-between text-xs text-slate-400">
+            <div class="flex flex-wrap gap-1.5">
+              <span class="px-2 py-0.5 rounded-full bg-slate-800/80 border border-slate-700/70">
+                ASP.NET Core 8
+              </span>
+              <span class="px-2 py-0.5 rounded-full bg-slate-800/80 border border-slate-700/70">
+                SQL server
+              </span>
+              <span class="px-2 py-0.5 rounded-full bg-slate-800/80 border border-slate-700/70">
+                React 19
+              </span>
+              <span class="px-2 py-0.5 rounded-full bg-slate-800/80 border border-slate-700/70">
+                Tailwind CSS
+              </span>
+            </div>
+            <br />
+          </div>
+          <div class="flex gap-3 text-xs text-slate-500 mt-4 justify-center">
+            <a href="https://www.linkedin.com/posts/mohamadamjad_fullstackdevelopment-aspnetcore-react-ugcPost-7469628094098604033-Z9YZ/?utm_source=social_share_send&utm_medium=member_desktop_web&rcm=ACoAAFUeue8B-n1HOepq-vMTNUjDY3nqd-2chhI"
+              target="_blank" class="text-primary hover:underline py-1 px-4 border border-white/20 rounded-lg"> View
+              Demo </a>
+            <a href="https://github.com/Mohamad-Amjad/Project-Management-System-using-.net.git" target="_blank" class="text-primary hover:underline py-1 px-4 border border-white/20 rounded-lg"> View Code </a>
+          </div>
+        </article>
+
+        <!-- Project 2 -->
+        <article
+          class="rounded-2xl border border-white/20 bg-white/5 backdrop-blur-xl p-5  flex flex-col gap-5 shadow-xl shadow-primary/20
+          hover:border-primary/50 hover:-translate-y-1 transition-all duration-300">
+          <div>
+            <p class="text-sm font-semibold text-slate-50 mx-1">
+              Fashion E-Commerce Platform
+            </p>
+            <img src="E-commerce.png" alt="project_screenshot"
+              class="w-full h-32 object-cover rounded-md my-5 border border-slate-600" />
+            <p class="text-sm text-slate-400 mb-4">
+              A full-stack fashion e-commerce application that delivers a complete
+              online shopping experience with product browsing, advanced search and
+              filtering, persistent cart and wishlist management, and secure Stripe
+              payment integration.
+            </p>
+          </div>
+          <div class="flex items-center justify-between text-xs text-slate-400">
+            <div class="flex flex-wrap gap-1.5">
+              <span class="px-2 py-0.5 rounded-full bg-slate-800/80 border border-slate-700/70">
+                Spring Boot
+              </span>
+              <span class="px-2 py-0.5 rounded-full bg-slate-800/80 border border-slate-700/70">
+                MySQL
+              </span>
+              <span class="px-2 py-0.5 rounded-full bg-slate-800/80 border border-slate-700/70">
+                React
+              </span>
+              <span class="px-2 py-0.5 rounded-full bg-slate-800/80 border border-slate-700/70">
+                Tailwind CSS
+              </span>
+              <span class="px-2 py-0.5 rounded-full bg-slate-800/80 border border-slate-700/70">
+                Stripe
+              </span>
+            </div>
+            <br />
+          </div>
+          <div class="flex gap-3 text-xs text-slate-500 mt-4 justify-center">
+            <a href="https://www.linkedin.com/posts/mohamadamjad_springboot-react-javadeveloper-activity-7469620513410084865-1ZnL?utm_source=social_share_send&utm_medium=member_desktop_web&rcm=ACoAAFUeue8B-n1HOepq-vMTNUjDY3nqd-2chhI"
+              target="_blank" class="text-primary hover:underline py-1 px-4 border border-white/20 rounded-lg"> View
+              Demo </a>
+            <a href="https://github.com/Mohamad-Amjad/Zelene-Ecommerce-website.git" target="_blank" class="text-primary hover:underline py-1 px-4 border border-white/20 rounded-lg"> View Code </a>
+          </div>
+        </article>
+
+        <!-- Project 3 -->
+        <article
+          class="rounded-2xl border border-white/20 bg-white/5 backdrop-blur-xl p-5  flex flex-col gap-7 shadow-xl shadow-primary/20
+          hover:border-primary/50 hover:-translate-y-1 transition-all duration-300">
+          <div>
+            <p class="text-sm font-semibold text-slate-50 mx-1">
+              AI Webpage Generator
+            </p>
+            <img src="Sitegen.png" alt="project_screenshot"
+              class="w-full h-32 object-cover rounded-md my-5 border border-slate-600" />
+            <p class="text-sm text-slate-400 mb-4">
+              An AI-powered website generator that creates responsive HTML layouts from
+              natural language prompts. Features live preview, chat-based refinement,
+              prompt history, secure authentication, and one-click code download.
+            </p>
+          </div>
+          <div class="flex items-center justify-between text-xs text-slate-400">
+            <div class="flex flex-wrap gap-1.5">
+              <span class="px-2 py-0.5 rounded-full bg-slate-800/80 border border-slate-700/70">
+                MongoDB
+              </span>
+              <span class="px-2 py-0.5 rounded-full bg-slate-800/80 border border-slate-700/70">
+                Node.js
+              </span>
+              <span class="px-2 py-0.5 rounded-full bg-slate-800/80 border border-slate-700/70">
+                React
+              </span>
+              <span class="px-2 py-0.5 rounded-full bg-slate-800/80 border border-slate-700/70">
+                Gemini API
+              </span>
+            </div>
+            <br />
+          </div>
+          <div class="flex gap-3 text-xs text-slate-500 mt-4 justify-center">
+            <a href="https://www.linkedin.com/posts/mohamadamjad_mernstack-reactjs-nodejs-ugcPost-7469624548011884544-8BBf/?utm_source=social_share_send&utm_medium=member_desktop_web&rcm=ACoAAFUeue8B-n1HOepq-vMTNUjDY3nqd-2chhI"
+              target="_blank" class="text-primary hover:underline py-1 px-4 border border-white/20 rounded-lg"> View
+              Demo </a>
+            <a href="https://github.com/Mohamad-Amjad/AI-webpage-generator.git" target="_blank" class="text-primary hover:underline py-1 px-4 border border-white/20 rounded-lg"> View Code </a>
+          </div>
+        </article>
+
+        <!-- project 4 -->
+        <article
+          class="rounded-2xl border border-white/20 bg-white/5 backdrop-blur-xl p-5  flex flex-col gap-2 shadow-xl shadow-primary/20
+          hover:border-primary/50 hover:-translate-y-1 transition-all duration-300">
+          <div>
+            <p class="text-sm font-semibold text-slate-50 mx-1">
+              AI Resume Analyzer
+            </p>
+            <img src="Resume_analyzer.png" alt="project_screenshot"
+              class="w-full h-32 object-cover rounded-md my-5 border border-slate-600" />
+            <p class="text-sm text-slate-400 mb-4">
+              An AI-powered resume analysis platform that extracts content from PDFs,
+              Word documents, and images to provide resume scoring, skill detection,
+              personalized feedback, and actionable improvement suggestions. Includes
+              user authentication and analysis history tracking.
+            </p>
+          </div>
+          <div class="flex items-center justify-between text-xs text-slate-400">
+            <div class="flex flex-wrap gap-1.5">
+              <span class="px-2 py-0.5 rounded-full bg-slate-800/80 border border-slate-700/70">
+                Spring boot
+              </span>
+              <span class="px-2 py-0.5 rounded-full bg-slate-800/80 border border-slate-700/70">
+                Next js
+              </span>
+              <span class="px-2 py-0.5 rounded-full bg-slate-800/80 border border-slate-700/70">
+                Tailwind CSS
+              </span>
+              <span class="px-2 py-0.5 rounded-full bg-slate-800/80 border border-slate-700/70">
+                Hugging face API
+              </span>
+            </div>
+            <br />
+          </div>
+          <div class="flex gap-3 text-xs text-slate-500 mt-4 justify-center">
+            <a href="https://www.linkedin.com/posts/mohamadamjad_springboot-nextjs-artificialintelligence-ugcPost-7469407955386310657-BMCs/?utm_source=social_share_send&utm_medium=member_desktop_web&rcm=ACoAAFUeue8B-n1HOepq-vMTNUjDY3nqd-2chhI"
+              target="_blank" class="text-primary hover:underline py-1 px-4 border border-white/20 rounded-lg"> View
+              Demo </a>
+            <a href="https://github.com/Mohamad-Amjad/Ai-Resume-Analyzer-with-springboot.git" target="_blank" class="text-primary hover:underline py-1 px-4 border border-white/20 rounded-lg"> View Code </a>
+          </div>
+        </article>
+      </div>
+    </section>
+
+
+    <!-- Education -->
+    <section id="education" class="mb-12 sm:mb-16">
+      <h2 class="text-lg sm:text-xl font-semibold text-slate-50 mb-4 sm:mb-6">
+        Education
+      </h2>
+
+      <div
+        class="rounded-2xl border border-slate-700/60 bg-white/5 shadow-xl shadow-primary/20 backdrop-blur-xl p-5 sm:p-6 space-y-4 
+        hover:scale-105 hover:border-primary/50 transition-all duration-500">
+        <!-- University -->
+        <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-1.5">
+          <div class="flex gap-5">
+            <img src="rusl.png" width="30" height="30"
+              alt="university_logo" />
+            <p class="text-sm font-semibold text-slate-50 mt-2">
+              BSc. IT (Information Technology) · Rajarata University of Sri Lanka
+            </p>
+            <p class="text-xs text-slate-400  mt-2">
+              Undergraduate · Currently enrolled
+            </p>
+          </div>
+          <p class="text-xs text-primary">Learning · building · deploying</p>
+        </div>
+
+        <p class="text-sm text-slate-300">
+          Developing full‑stack skills through coursework and hands‑on
+          projects in web development, databases, and software engineering.
+        </p>
+
+        <hr class="border-slate-700/70" />
+
+        <div>
+          <p class="text-xs font-semibold uppercase tracking-[0.2em] text-slate-400 mb-2">
+            Relevant coursework
+          </p>
+          <div class="flex flex-wrap gap-2 text-xs text-slate-200">
+            <span class="px-3 py-1 rounded-full bg-slate-800/90 border border-slate-700/80">
+              Data Structures
+            </span>
+            <span class="px-3 py-1 rounded-full bg-slate-800/90 border border-slate-700/80">
+              Databases
+            </span>
+            <span class="px-3 py-1 rounded-full bg-slate-800/90 border border-slate-700/80">
+              Web Development
+            </span>
+            <span class="px-3 py-1 rounded-full bg-slate-800/90 border border-slate-700/80">
+              Software Engineering
+            </span>
+            <span class="px-3 py-1 rounded-full bg-slate-800/90 border border-slate-700/80">
+              Computer Networks
+            </span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Contact -->
+    <section id="contact" class="mb-10 sm:mb-14">
+      <div
+        class="rounded-3xl border border-slate-700/60 bg-white/5 backdrop-blur-2xl p-6 sm:p-8 flex flex-col md:flex-row gap-6 md:items-center shadow-2xl shadow-primary/30
+         hover:scale-105 hover:border-primary/50 transition-all duration-700">
+        <div class="flex-1 space-y-3">
+          <h2 class="text-lg sm:text-xl font-semibold text-slate-50">
+            Let’s build something together
+          </h2>
+          <p class="text-sm text-slate-300">
+            Have an opportunity, idea, or project in mind? I’d love to hear
+            about it.
+          </p>
+          <div class="space-y-1 text-sm text-slate-200">
+            <p>
+              Email:
+              <a href="mailto:mohamadamjad.dev@gmail.com" target="_blank" class="text-primary hover:underline">
+                mohamadamjad.dev@gmail.com
+              </a>
+            </p>
+            <p>Location: Kandy, Sri Lanka · Open to remote roles</p>
+          </div>
+        </div>
+
+        <div class="w-full md:w-80">
+          <form class="space-y-3 text-sm">
+            <div>
+              <label for="name" class="block text-xs font-medium text-slate-300 mb-1">
+                Name
+              </label>
+              <input type="text" placeholder="Your name" id="name" 
+                class="w-full rounded-xl border border-slate-700/70 bg-slate-900/60 px-3 py-2 text-xs sm:text-sm text-slate-100 placeholder:text-slate-500 focus:outline-none focus:ring-1 focus:ring-primary/80 focus:border-primary/80" />
+            </div>
+            <div>
+              <label for="email" class="block text-xs font-medium text-slate-300 mb-1">
+                Email
+              </label>
+              <input type="email" placeholder="you@example.com" id="email" 
+                class="w-full rounded-xl border border-slate-700/70 bg-slate-900/60 px-3 py-2 text-xs sm:text-sm text-slate-100 placeholder:text-slate-500 focus:outline-none focus:ring-1 focus:ring-primary/80 focus:border-primary/80" />
+            </div>
+            <div>
+              <label for="message" class="block text-xs font-medium text-slate-300 mb-1">
+                Message
+              </label>
+              <textarea rows="3" placeholder="Tell me about my project..." id="message" 
+                class="w-full rounded-xl border border-slate-700/70 bg-slate-900/60 px-3 py-2 text-xs sm:text-sm text-slate-100 placeholder:text-slate-500 focus:outline-none focus:ring-1 focus:ring-primary/80 focus:border-primary/80 resize-none"></textarea>
+            </div>
+            <button type="button" id="send"
+              class="w-full inline-flex items-center justify-center gap-2 rounded-xl bg-gradient-to-r from-primary to-accent px-4 py-2.5 text-sm font-medium text-slate-950 shadow-lg shadow-primary/40 hover:shadow-xl hover:shadow-primary/60 transition-all">
+              Send message
+              <div id="buffer" class="w-5 h-5 rounded-full border border-transparent border-t-white border-r-white border-b-white animate-spin hidden"></div>
+            </button>
+          </form>
+        </div>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="pb-4 flex flex-col sm:flex-row items-center justify-between gap-2 text-[11px] text-slate-500">
+      <p>© <span id="year"></span> Mohamad Amjad. All rights reserved.</p>
+      <p>Built with Tailwind CSS.</p>
+    </footer>
+  </div>
+
+  <script>
+    // Set current year
+    document.getElementById("year").textContent = new Date().getFullYear();
+    emailjs.init({
+      publicKey: "PUBLIC_KEY_HERE",
+    });
+    document.getElementById("send").addEventListener("click", function () {
+      const username = document.getElementById("name").value;
+      const useremail = document.getElementById("email").value;
+      const usermessage = document.getElementById("message").value;
+      const buffer=document.getElementById("buffer");
+
+      buffer.style.display="block";
+      if (!username || !useremail || !usermessage) {
+        alert("Please fill in all fields.");
+        buffer.style.display="none";
+        return;
+      }
+      
+      emailjs.send("SERVICE_ID", "TEMPLATE_ID", {
+        from_name: username,
+        from_email: useremail,
+        message: `Name :\n ${username}\n\nEmail :\n ${useremail}\n\nMessage :\n ${usermessage}`,
+      }).then(function (response) {
+        alert("Message sent successfully!");
+        document.getElementById("name").value = "";
+        document.getElementById("email").value = "";
+        document.getElementById("message").value = "";
+        buffer.style.display="none";
+      }, function (error) {
+        alert("Failed to send message. Please try again later.");
+        buffer.style.display="none";
+      });
+    });
+
+  </script>
+</body>
+
+</html>
